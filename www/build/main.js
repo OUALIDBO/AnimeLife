@@ -64,7 +64,15 @@ var NewAnimPage = (function () {
     };
     NewAnimPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+<<<<<<< HEAD
             selector: 'page-new-anim',template:/*ion-inline-start:"/Users/oualid/Desktop/AnimeLife/src/pages/new-anim/new-anim.html"*/'<!--\n  Generated template for the NewAnimPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>New Anim</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  <ion-list>\n\n    <ion-item>\n          <ion-label fixed>Title</ion-label>\n          <ion-input [(ngModel)]="title" type="text" value=""></ion-input>\n    </ion-item>\n\n    <ion-item>\n          <ion-label fixed>Author</ion-label>\n          <ion-input [(ngModel)]="author" type="text" value=""></ion-input>\n    </ion-item>\n\n  </ion-list>\n\n  <button (click)="save()" ion-button color="dark">\n    Save\n\n  </button>\n\n  <button (click)="cancel()" ion-button color="light">\n    Cancel\n\n  </button>\n</ion-content>\n'/*ion-inline-end:"/Users/oualid/Desktop/AnimeLife/src/pages/new-anim/new-anim.html"*/,
+=======
+<<<<<<< HEAD
+            selector: 'page-new-anim',template:/*ion-inline-start:"/Users/oualid/Desktop/AnimeLife/src/pages/new-anim/new-anim.html"*/'<!--\n  Generated template for the NewAnimPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>New Anim</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  <ion-list>\n\n    <ion-item>\n          <ion-label fixed>Title</ion-label>\n          <ion-input [(ngModel)]="title" type="text" value=""></ion-input>\n    </ion-item>\n\n    <ion-item>\n          <ion-label fixed>Author</ion-label>\n          <ion-input [(ngModel)]="author" type="text" value=""></ion-input>\n    </ion-item>\n\n  </ion-list>\n\n  <button (click)="save()" ion-button color="dark">\n    Save\n\n  </button>\n\n  <button (click)="cancel()" ion-button color="light">\n    Cancel\n\n  </button>\n</ion-content>\n'/*ion-inline-end:"/Users/oualid/Desktop/AnimeLife/src/pages/new-anim/new-anim.html"*/,
+=======
+            selector: 'page-new-anim',template:/*ion-inline-start:"/Users/oualid/Desktop/Oualid-Augustin/App/src/pages/new-anim/new-anim.html"*/'<!--\n  Generated template for the NewAnimPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>New Anim</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  <ion-list>\n\n    <ion-item>\n          <ion-label fixed>Title</ion-label>\n          <ion-input [(ngModel)]="title" type="text" value=""></ion-input>\n    </ion-item>\n\n    <ion-item>\n          <ion-label fixed>Author</ion-label>\n          <ion-input [(ngModel)]="author" type="text" value=""></ion-input>\n    </ion-item>\n\n  </ion-list>\n\n  <button (click)="save()" ion-button color="dark">\n    Save\n\n  </button>\n\n  <button (click)="cancel()" ion-button color="light">\n    Cancel\n\n  </button>\n</ion-content>\n'/*ion-inline-end:"/Users/oualid/Desktop/Oualid-Augustin/App/src/pages/new-anim/new-anim.html"*/,
+>>>>>>> 2f0ade41c3b8317c572ddabaf15312ec67a58084
+>>>>>>> 8c1e377745489a5931e517fbfea178bc514ca659
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _b || Object])
     ], NewAnimPage);
@@ -181,12 +189,27 @@ var HomePage = (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 8c1e377745489a5931e517fbfea178bc514ca659
             selector: 'page-home',template:/*ion-inline-start:"/Users/oualid/Desktop/AnimeLife/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Life is Anime\n    </ion-title>\n\n    <ion-buttons end>\n\n      <button (click)= "createNew()" ion-button color="secondary">\n        <ion-icon name="add"></ion-icon>\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n  <ion-list>\n    <ion-item-sliding *ngFor = "let anim of anims">\n\n    <ion-item>\n\n        {{ anim.name }}\n\n        <p>\n            Title : {{anim.title}}\n        </p>\n\n        <p>\n            Author : {{anim.author}}\n        </p>\n\n    </ion-item>\n        <ion-item-options side="left">\n              <button (click)="edit(anim)" ion-button color="secondary">\n                <ion-icon name="create"></ion-icon>\n                Edit\n              </button>\n              <button (click)="delete(anim)" ion-button color="danger">\n                <ion-icon name="trash"></ion-icon>\n                Delete\n              </button>\n            </ion-item-options>\n  </ion-item-sliding>\n  </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/oualid/Desktop/AnimeLife/src/pages/home/home.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]])
+    ], HomePage);
+    return HomePage;
+<<<<<<< HEAD
+    var _a;
+=======
+=======
+            selector: 'page-home',template:/*ion-inline-start:"/Users/oualid/Desktop/Oualid-Augustin/App/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Life is Anime\n    </ion-title>\n\n    <ion-buttons end>\n\n      <button (click)= "createNew()" ion-button color="secondary">\n        <ion-icon name="add"></ion-icon>\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n  <ion-list>\n    <ion-item-sliding *ngFor = "let anim of anims">\n\n    <ion-item>\n\n        {{ anim.name }}\n\n        <p>\n            Title : {{anim.title}}\n        </p>\n\n        <p>\n            Author : {{anim.author}}\n        </p>\n\n    </ion-item>\n        <ion-item-options side="left">\n              <button (click)="edit(anim)" ion-button color="secondary">\n                <ion-icon name="create"></ion-icon>\n                Edit\n              </button>\n              <button (click)="delete(anim)" ion-button color="danger">\n                <ion-icon name="trash"></ion-icon>\n                Delete\n              </button>\n            </ion-item-options>\n  </ion-item-sliding>\n  </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/oualid/Desktop/Oualid-Augustin/App/src/pages/home/home.html"*/
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object])
     ], HomePage);
     return HomePage;
     var _a;
+>>>>>>> 2f0ade41c3b8317c572ddabaf15312ec67a58084
+>>>>>>> 8c1e377745489a5931e517fbfea178bc514ca659
 }());
 
 //# sourceMappingURL=home.js.map
@@ -307,7 +330,15 @@ var MyApp = (function () {
         });
     }
     MyApp = __decorate([
+<<<<<<< HEAD
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/oualid/Desktop/AnimeLife/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/oualid/Desktop/AnimeLife/src/app/app.html"*/
+=======
+<<<<<<< HEAD
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/oualid/Desktop/AnimeLife/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/oualid/Desktop/AnimeLife/src/app/app.html"*/
+=======
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/oualid/Desktop/Oualid-Augustin/App/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/oualid/Desktop/Oualid-Augustin/App/src/app/app.html"*/
+>>>>>>> 2f0ade41c3b8317c572ddabaf15312ec67a58084
+>>>>>>> 8c1e377745489a5931e517fbfea178bc514ca659
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
