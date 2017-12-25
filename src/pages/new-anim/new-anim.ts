@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import PouchDB from 'pouchdb';
-/**
- * Generated class for the NewAnimPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AnimApiService } from '../../services/animapi.service'
+import {AnimApiGlobal} from '../../models/animapi-global.model';
+import {HomePage} from '../home/home';
 
 @IonicPage()
 @Component({
@@ -15,88 +11,63 @@ import PouchDB from 'pouchdb';
 })
 export class NewAnimPage {
 
-  private title;
-  private author;
-  private db;
-  private anim; // being edited
+  public NewAnimTitle : string;
+  public label_title : string;
+  public label_author : string;
+  public label_image : string;
+  public label_date : string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public button_label_save : string;
+  public button_label_cancel : string;
+
+  //public collectedanims: AnimApiGlobal = new AnimApiGlobal();
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,private animApiService: AnimApiService) {
+
+    this.NewAnimTitle = "Create new anime";
+
   }
 
-  setupDB(){
 
-    this.db = new PouchDB('anims');
-
-  }
 
   ionViewDidLoad() {
 
-    this.setupDB();
+    this.label_title = "Title";
+    this.label_author = "Author";
+    this.label_image = "Image URL";
+    this.label_date = "date";
+    this.button_label_save = "Save";
+    this.button_label_cancel = "Cancel";
 
-    if(this.navParams.get('anim_id') != null) {
-          this.db.get(this.navParams.get('anim_id'), (err,result) => {
-
-            if(!err){
-
-              this.anim = result;
-
-              this.title=result.title;
-
-              this.author=result.author;
-            }
-
-          });
-    }
+    //this.getAnim();
 
   }
 
 
-  save(){
+  /*getAnim(){
 
-    if(this.anim) {
-
-        this.anim.title = this.title;
-
-        this.anim.author = this.author;
-
-
-        // update
-        this.db.put(this.anim,(err,result)=>{
-
-            if(!err){
-
-                alert('Anime updated successfully !');
-
-                this.navCtrl.pop();
-
-            }
-
-        });
-
-    }else {
-
-        this.db.post({
-
-        title: this.title,
-        author: this.author
-
-      }, (err, result) => {
-
-          if(!err){
-            alert('Anime added successfully !');
-
-            this.navCtrl.pop();
-          }
-       });
+    this.animApiService.getAnimService()
+    .then(animFetched => {
+      this.collectedanims = animFetched;
+    });
 
 
-    }
+  }*/
 
+  addAnim(title,author,image,date){
 
+      this.animApiService.addAnimService(title,author,image,date);
+      //this.getAnim();
+      console.log('addAnim',title);
+      this.navCtrl.pop();
   }
-        cancel(){
-          this.navCtrl.pop();
-        }
+
+
+
+
+  cancel(){
+      this.navCtrl.pop();
+  }
 
 
 }

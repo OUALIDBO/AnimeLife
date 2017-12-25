@@ -8,15 +8,21 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { NewAnimPage } from '../pages/new-anim/new-anim';
 import { ShowOnePage} from '../pages/show-one/show-one';
+import { EditPage} from '../pages/edit/edit';
+import { AnimApiService } from '../services/animapi.service';
+import { HttpModule } from '@angular/http';
+
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     NewAnimPage,
-    ShowOnePage
+    ShowOnePage,
+    EditPage
   ],
   imports: [
+    HttpModule,
     BrowserModule,
     IonicModule.forRoot(MyApp)
   ],
@@ -25,9 +31,11 @@ import { ShowOnePage} from '../pages/show-one/show-one';
     MyApp,
     HomePage,
     NewAnimPage,
-    ShowOnePage
+    ShowOnePage,
+    EditPage
   ],
   providers: [
+    AnimApiService,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

@@ -17,28 +17,31 @@
 
 <ion-content>
 
-  <ion-list >
-    <ion-item-sliding *ngFor = "let anim of anims">
+  <ion-list>
+    <ion-item-sliding *ngFor = "let anim of collectedanims.anime">
 
-    <ion-item>
 
-        {{ anim.name }}
 
-        <p>
-            Title : {{anim.title}}
-        </p>
 
-        <p>
-            Author : {{anim.author}}
-        </p>
 
-    </ion-item>
+            <ion-item>
+
+                <ion-thumbnail item-start>
+                  <img src={{anim.image}}/>
+                </ion-thumbnail>
+                  <p>{{anim.title}} • {{anim.date}} </p>
+
+                  <p>{{anim.author}}</p>
+                <button (click)="ShowOne(anim.id)" ion-button clear item-end>View</button>
+
+            </ion-item>
+
         <ion-item-options side="left">
-              <button (click)="edit(anim)" ion-button color="secondary">
+              <button (click)="edit(anim.id,anim.title,anim.author,anim.image,anim.date)" ion-button color="secondary">
                 <ion-icon name="create"></ion-icon>
                 Edit
               </button>
-              <button (click)="delete(anim)" ion-button color="danger">
+              <button (click)="delete(anim.id)" ion-button color="danger">
                 <ion-icon name="trash"></ion-icon>
                 Delete
               </button>

@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>New Anim</ion-title>
+    <ion-title>{{NewAnimTitle}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -17,24 +17,34 @@
   <ion-list>
 
     <ion-item>
-          <ion-label fixed>Title</ion-label>
+          <ion-label fixed>{{label_title}}</ion-label>
           <ion-input [(ngModel)]="title" type="text" value=""></ion-input>
     </ion-item>
 
     <ion-item>
-          <ion-label fixed>Author</ion-label>
+          <ion-label fixed>{{label_author}}</ion-label>
           <ion-input [(ngModel)]="author" type="text" value=""></ion-input>
+    </ion-item>
+
+    <ion-item>
+          <ion-label fixed>{{label_image}}</ion-label>
+          <ion-input [(ngModel)]="image" type="text" value=""></ion-input>
+    </ion-item>
+
+    <ion-item>
+          <ion-label fixed>{{label_date}}</ion-label>
+          <ion-input [(ngModel)]="date" type="text" value=""></ion-input>
     </ion-item>
 
   </ion-list>
 
-  <button (click)="save()" ion-button color="dark">
-    Save
+  <button (click)="addAnim(title,author,image,date)" ion-button color="dark">
+    {{button_label_save}}
 
   </button>
 
   <button (click)="cancel()" ion-button color="light">
-    Cancel
+    {{button_label_cancel}}
 
   </button>
 </ion-content>

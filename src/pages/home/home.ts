@@ -2,75 +2,100 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { NewAnimPage} from '../new-anim/new-anim';
 import { ShowOnePage} from '../show-one/show-one';
-import PouchDB from 'pouchdb';
+import { EditPage} from '../edit/edit';
+import { AnimApiService } from '../../services/animapi.service'
+import {AnimApiGlobal} from '../../models/animapi-global.model';
+
+
+
+
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
+
 export class HomePage {
 
-  private anims;
-  private db;
-  constructor(public navCtrl: NavController) {
+  public HomeTitle : string;
+
+  public collectedanims: AnimApiGlobal = new AnimApiGlobal();
+
+
+  constructor(public navCtrl: NavController, private animApiService: AnimApiService) {
+
+        this.HomeTitle = "Life is Anime";
+        this.getAnim();
+  }
+
+
+  ionViewDidEnter(){
+      this.getAnim();
+  }
+
+  ionViewDidLoad(){
+      this.getAnim();
+  }
+
+  getAnim(){
+
+    this.animApiService.getAnimService()
+    .then(animFetched => {
+      this.collectedanims = animFetched;
+    });
+
 
   }
 
-  ionViewDidEnter() {
-    this.refresh();
-  }
-
-  refresh() {
-
-    this.db = new PouchDB('anims');
-
-    this.anims = [];
-
-    this.db.allDocs({include_docs: true}, (err,result) => {
-
-        if(!err) {
-          let rows = result.rows;
-
-          for(let i=0; i<rows.length; i++){
-            this.anims.push(rows[i].doc);
-          }
-        }
-
-    })
-
-  }
 
   createNew(){
+
       this.navCtrl.push(NewAnimPage);
   }
 
-  edit(anim){
-    this.navCtrl.push(NewAnimPage, {
+  ShowOne(clickedID){
 
-        anim_id: anim._id
+      let id = this.collectedanims.anime[clickedID-1].id;
+      let title = this.collectedanims.anime[clickedID-1].title;
+      let author = this.collectedanims.anime[clickedID-1].author;
+      let image = this.collectedanims.anime[clickedID-1].image;
+      let date = this.collectedanims.anime[clickedID-1].date;
 
-    });
+      let data = {
+        id:id,
+        title:title,
+        author:author,
+        image:image,
+        date: date
+      };
+      console.log('showone id',data.id);
+      this.navCtrl.push(ShowOnePage,data);
   }
 
 
-  delete(anim){
+  delete(clickedID){
 
-        if(confirm('Are you sure ?')){
+      this.animApiService.deleteAnimService(clickedID);
+      this.getAnim();
 
-            this.db.remove(anim, (err, result) => {
-              if(!err){
-
-                alert("Anime deleted successfully !");
-
-                this.refresh();
-              }
-
-            });
-        }
   }
 
 
-  showOne(){
-      this.navCtrl.push(ShowOnePage);
+  edit(id,title,author,image,date){
+
+    let data = {
+      id:id,
+      title:title,
+      author:author,
+      image:image,
+      date: date
+    };
+    this.navCtrl.push(EditPage,data);
+
   }
+
+
+
+
+
 }

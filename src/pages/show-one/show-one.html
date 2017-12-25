@@ -1,7 +1,7 @@
 <ion-header>
     <ion-navbar>
         <ion-title>
-          Show One
+          {{ShowOneTitle}}
         </ion-title>
 
     </ion-navbar>
@@ -9,24 +9,21 @@
 
 </ion-header>
 
-<ion-content>
+<ion-content *ngFor="let data1 of data">
 
-  <ion-list>
 
-    <ion-item *ngFor = "let anim of anims">
 
-        {{ anim.name }}
+  <ion-item >
 
-        <p>
-            Title : {{anim.title}}
-        </p>
+      <img src={{data1.image}}/>
 
-        <p>
-            Author : {{anim.author}}
-        </p>
+      <p>Title: {{data1.title}}</p>
 
-    </ion-item>
+      <p>Author: {{data1.author}} </p>
 
-  </ion-list>
+      <p>Date: {{data1.date}}</p>
+
+  </ion-item>
+
 
 </ion-content>
