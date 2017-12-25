@@ -48,9 +48,8 @@ export class NewAnimPage {
           });
     }
 
-
-
   }
+
 
   save(){
 
@@ -66,7 +65,7 @@ export class NewAnimPage {
 
             if(!err){
 
-                alert('Anim updated successfully !');
+                alert('Anime updated successfully !');
 
                 this.navCtrl.pop();
 
@@ -84,7 +83,7 @@ export class NewAnimPage {
       }, (err, result) => {
 
           if(!err){
-            alert('Anim added successfully !');
+            alert('Anime added successfully !');
 
             this.navCtrl.pop();
           }

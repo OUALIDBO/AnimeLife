@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { NewAnimPage} from '../new-anim/new-anim';
+import { ShowOnePage} from '../show-one/show-one';
 import PouchDB from 'pouchdb';
 
 @Component({
@@ -66,5 +67,10 @@ export class HomePage {
 
             });
         }
+  }
+
+
+  showOne(){
+      this.navCtrl.push(ShowOnePage);
   }
 }
