@@ -18,6 +18,7 @@ export class NewAnimPage {
   private title;
   private author;
   private db;
+  private anim; // being edited
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -31,7 +32,23 @@ export class NewAnimPage {
   ionViewDidLoad() {
 
     this.setupDB();
-    console.log('ionViewDidLoad NewAnimPage');
+
+    if(this.navParams.get('anim_id') != null) {
+          this.db.get(this.navParams.get('anim_id'), (err,result) => {
+
+            if(!err){
+
+              this.anim = result;
+
+              this.title=result.title;
+
+              tihs.author=result.author;
+            }
+
+          });
+    }
+
+
 
   }
 
@@ -48,7 +65,7 @@ export class NewAnimPage {
 
           this.navCtrl.pop();
         }
-  });
+     });
 
   }
 

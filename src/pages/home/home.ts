@@ -44,7 +44,11 @@ export class HomePage {
   }
 
   edit(anim){
+    this.navCtrl.push(NewAnimPage, {
 
+        anim_id: anim._id
+
+    });
   }
 
 

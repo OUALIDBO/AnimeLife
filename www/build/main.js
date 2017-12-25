@@ -35,8 +35,17 @@ var NewAnimPage = (function () {
         this.db = new __WEBPACK_IMPORTED_MODULE_2_pouchdb__["a" /* default */]('anims');
     };
     NewAnimPage.prototype.ionViewDidLoad = function () {
+        var _this = this;
         this.setupDB();
-        console.log('ionViewDidLoad NewAnimPage');
+        if (this.navParams.get('anim_id') != null) {
+            this.db.get(this.navParams.get('anim_id'), function (err, result) {
+                if (!err) {
+                    _this.anim = result;
+                    _this.title = result.title;
+                    tihs.author = result.author;
+                }
+            });
+        }
     };
     NewAnimPage.prototype.save = function () {
         var _this = this;
@@ -57,9 +66,10 @@ var NewAnimPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-new-anim',template:/*ion-inline-start:"/Users/oualid/Desktop/AnimeLife/src/pages/new-anim/new-anim.html"*/'<!--\n  Generated template for the NewAnimPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>New Anim</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  <ion-list>\n\n    <ion-item>\n          <ion-label fixed>Title</ion-label>\n          <ion-input [(ngModel)]="title" type="text" value=""></ion-input>\n    </ion-item>\n\n    <ion-item>\n          <ion-label fixed>Author</ion-label>\n          <ion-input [(ngModel)]="author" type="text" value=""></ion-input>\n    </ion-item>\n\n  </ion-list>\n\n  <button (click)="save()" ion-button color="dark">\n    Save\n\n  </button>\n\n  <button (click)="cancel()" ion-button color="light">\n    Cancel\n\n  </button>\n</ion-content>\n'/*ion-inline-end:"/Users/oualid/Desktop/AnimeLife/src/pages/new-anim/new-anim.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _b || Object])
     ], NewAnimPage);
     return NewAnimPage;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=new-anim.js.map
@@ -154,6 +164,9 @@ var HomePage = (function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__new_anim_new_anim__["a" /* NewAnimPage */]);
     };
     HomePage.prototype.edit = function (anim) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__new_anim_new_anim__["a" /* NewAnimPage */], {
+            anim_id: anim._id
+        });
     };
     HomePage.prototype.delete = function (anim) {
         var _this = this;
@@ -170,9 +183,10 @@ var HomePage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-home',template:/*ion-inline-start:"/Users/oualid/Desktop/AnimeLife/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Life is Anime\n    </ion-title>\n\n    <ion-buttons end>\n\n      <button (click)= "createNew()" ion-button color="secondary">\n        <ion-icon name="add"></ion-icon>\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n  <ion-list>\n    <ion-item-sliding *ngFor = "let anim of anims">\n\n    <ion-item>\n\n        {{ anim.name }}\n\n        <p>\n            Title : {{anim.title}}\n        </p>\n\n        <p>\n            Author : {{anim.author}}\n        </p>\n\n    </ion-item>\n        <ion-item-options side="left">\n              <button (click)="edit(anim)" ion-button color="secondary">\n                <ion-icon name="create"></ion-icon>\n                Edit\n              </button>\n              <button (click)="delete(anim)" ion-button color="danger">\n                <ion-icon name="trash"></ion-icon>\n                Delete\n              </button>\n            </ion-item-options>\n  </ion-item-sliding>\n  </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/oualid/Desktop/AnimeLife/src/pages/home/home.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object])
     ], HomePage);
     return HomePage;
+    var _a;
 }());
 
 //# sourceMappingURL=home.js.map
