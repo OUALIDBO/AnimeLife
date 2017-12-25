@@ -42,7 +42,7 @@ export class NewAnimPage {
 
               this.title=result.title;
 
-              tihs.author=result.author;
+              this.author=result.author;
             }
 
           });
