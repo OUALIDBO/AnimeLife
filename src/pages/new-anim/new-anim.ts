@@ -42,7 +42,7 @@ export class NewAnimPage {
 
               this.title=result.title;
 
-              tihs.author=result.author;
+              this.author=result.author;
             }
 
           });
@@ -53,24 +53,51 @@ export class NewAnimPage {
   }
 
   save(){
-    this.db.post({
 
-      title: this.title,
-      author: this.author
+    if(this.anim) {
 
-    }, (err, result) => {
+        this.anim.title = this.title;
 
-        if(!err){
-          alert('Anim added successfully !');
+        this.anim.author = this.author;
 
+
+        // update
+        this.db.put(this.anim,(err,result)=>{
+
+            if(!err){
+
+                alert('Anim updated successfully !');
+
+                this.navCtrl.pop();
+
+            }
+
+        });
+
+    }else {
+
+        this.db.post({
+
+        title: this.title,
+        author: this.author
+
+      }, (err, result) => {
+
+          if(!err){
+            alert('Anim added successfully !');
+
+            this.navCtrl.pop();
+          }
+       });
+
+
+    }
+
+
+  }
+        cancel(){
           this.navCtrl.pop();
         }
-     });
 
-  }
-
-  cancel(){
-    this.navCtrl.pop();
-  }
 
 }
